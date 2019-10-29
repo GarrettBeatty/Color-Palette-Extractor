@@ -2,9 +2,10 @@ from sklearn.cluster import KMeans
 from skimage import data, io, filters, color
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 
-image = io.imread("et.jpeg")
+image = io.imread(str(sys.argv[1]))
 image_xyz = color.rgb2xyz(image)
 image_xyz = np.reshape(image_xyz, (-1, 3))
 n_clusters = 5
@@ -27,6 +28,4 @@ ax1.set_axis_off()
 ax2.set_axis_off()
 ax1.imshow(palettes)
 ax2.imshow(image)
-
-
 plt.show()

@@ -1,1 +1,1 @@
-# PaletteExtractor
+# Palette Extractor
