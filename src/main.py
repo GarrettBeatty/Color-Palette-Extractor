@@ -6,9 +6,10 @@ import sys
 
 
 image = io.imread(str(sys.argv[1]))
+n_clusters = int(sys.argv[2])
+
 image_xyz = color.rgb2xyz(image)
 image_xyz = np.reshape(image_xyz, (-1, 3))
-n_clusters = 5
 
 kmeans = KMeans(n_clusters).fit(image_xyz)
 
