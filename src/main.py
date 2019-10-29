@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 image = io.imread("et.jpeg")
 image_xyz = color.rgb2xyz(image)
 image_xyz = np.reshape(image_xyz, (-1, 3))
-n_clusters = 4
+n_clusters = 5
 
 kmeans = KMeans(n_clusters).fit(image_xyz)
 
@@ -19,7 +19,14 @@ for cluster in kmeans.cluster_centers_:
     palettes.append(img)
 
 palettes = np.hstack(palettes)
-plt.imshow(palettes)
-plt.axis('off')
-plt.tight_layout(True)
+
+f1 = plt.figure(figsize=(8, 6))
+ax1 = f1.add_subplot(212, frameon=False)
+ax2 = f1.add_subplot(211, frameon=False)
+ax1.set_axis_off()
+ax2.set_axis_off()
+ax1.imshow(palettes)
+ax2.imshow(image)
+
+
 plt.show()
